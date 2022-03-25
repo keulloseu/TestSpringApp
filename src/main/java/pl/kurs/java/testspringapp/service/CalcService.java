@@ -18,9 +18,9 @@ public class CalcService {
             case "/":
                 return firstArgument / secondArgument;
             case "^":
-                return Math.pow(firstArgument,secondArgument);
+                return Math.pow(firstArgument, secondArgument);
             case "root":
-                return Math.pow(firstArgument, 1/secondArgument);
+                return Math.pow(firstArgument, 1 / secondArgument);
             default:
                 return 0D;
         }

@@ -2,8 +2,6 @@ package pl.kurs.java.testspringapp.model;
 
 import lombok.*;
 
-import java.sql.Timestamp;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
