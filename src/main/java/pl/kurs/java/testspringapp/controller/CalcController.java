@@ -22,14 +22,17 @@ public class CalcController {
     CalcRepo calcRepo;
 
     @GetMapping(value = "/calculator")
-    public String test(ModelMap map) {
+    public String calculator(ModelMap map) {
         map.addAttribute("calcForm", new CalcForm());
         return "calculator";
     }
 
     @PostMapping(value = "/calculator/execute")
-    public String execute(ModelMap map, @ModelAttribute("calcForm") CalcForm form) {
-        form.setResult(calcService.calculateResult(form.getFirstArgument(), form.getSecondArgument(), form.getOperator()));
+    public String calculatorExecute(ModelMap map, @ModelAttribute("calcForm") CalcForm form) {
+        if (form.getFirstArgument() == null || form.getSecondArgument() == null) {
+            return "calculator_redo";
+        }
+        calcService.calculateResult(form);
         calcRepo.save(form);
         map.addAttribute("firstArgument", form.getFirstArgument());
         map.addAttribute("secondArgument", form.getSecondArgument());

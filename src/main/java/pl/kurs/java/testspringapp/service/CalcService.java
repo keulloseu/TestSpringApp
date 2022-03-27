@@ -1,28 +1,45 @@
 package pl.kurs.java.testspringapp.service;
 
 import org.springframework.stereotype.Service;
+import pl.kurs.java.testspringapp.model.CalcForm;
 
 @Service
 public class CalcService {
     public CalcService() {
     }
 
-    public Double calculateResult(Double firstArgument, Double secondArgument, String operator) {
-        switch (operator) {
+    public void calculateResult(CalcForm form) {
+        switch (form.getOperator()) {
             case "+":
-                return firstArgument + secondArgument;
+                form.setResult(form.getFirstArgument() + form.getSecondArgument());
+                break;
             case "-":
-                return firstArgument - secondArgument;
+                form.setResult(form.getFirstArgument() - form.getSecondArgument());
+                break;
             case "*":
-                return firstArgument * secondArgument;
+                form.setResult(form.getFirstArgument() * form.getSecondArgument());
+                break;
             case "/":
-                return firstArgument / secondArgument;
+                if (form.getSecondArgument() == 0) {
+                    form.setResult(null);
+                }
+                form.setResult(form.getFirstArgument() / form.getSecondArgument());
+                break;
             case "^":
-                return Math.pow(firstArgument, secondArgument);
+                if (form.getFirstArgument() == 0 && form.getSecondArgument() == 0) {
+                    form.setResult(null);
+                }
+                form.setResult(Math.pow(form.getFirstArgument(), form.getSecondArgument()));
+                break;
             case "root":
-                return Math.pow(firstArgument, 1 / secondArgument);
+                if (form.getSecondArgument() == 0) {
+                    form.setResult(null);
+                }
+                form.setResult(Math.pow(form.getFirstArgument(), 1 / form.getSecondArgument()));
+                break;
             default:
-                return 0D;
+                form.setResult(null);
+                break;
         }
     }
 }
