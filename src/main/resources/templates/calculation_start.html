@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Calculator</title>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to the best online calculator</h1>
+</div>
+
+<div class="starter-template">
+    <form action="#" th:action="@{/calculation/result}" method="post" th:object="${calculation_form}">
+        <label>
+            <label>Please enter your numbers</label><br>
+            <label th:field="*{firstNumber}">First Number</label>
+            <input type="text" th:field="*{firstNumber}"/><br>
+            <label th:field="*{secondNumber}">Second Number</label>
+            <input type="text" th:field="*{secondNumber}"/><br>
+            <label th:field="*{mathSymbols}">Choose mathematical operation that you want to perform</label>
+            <select th:field="*{mathSymbols}" id="*{mathSymbols}">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="^">^</option>
+                <option value="root">root</option>
+            </select><br>
+        </label>
+
+        <button type="submit">CALCULATE</button>
+    </form>
+</div>
+
+</body>
+</html>
