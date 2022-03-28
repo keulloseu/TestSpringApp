@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulator</title>
+</head>
+<body>
+<form action="#" th:action="@{/calculate/execute}" method="post" th:object="${myForm}">
+    <label for="a">Pierwsza liczba</label>
+    <input th:field="*{a}" id="a"/>
+    <label for="op">Wybierz operator</label>
+    <select th:field="*{operation}" id="op">
+        <option th:value="+" th:text="+"></option>
+        <option th:value="-" th:text="-"></option>
+        <option th:value="/" th:text="/"></option>
+        <option th:value="*" th:text="*"></option>
+    </select>
+    <label for="b">Druga liczba</label>
+    <input th:field="*{b}" id="b"/>
+    <button type="submit">Oblicz</button>
+</form>
+</body>
+</html>
