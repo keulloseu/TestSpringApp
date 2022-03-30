@@ -2,5 +2,5 @@ package pl.kurs.java.testspringapp.model;
 
 public interface CalcRepo {
 
-    int save(CalcForm calcForm);
+    int save(CalcForm form);
 }

@@ -22,18 +22,21 @@ public class CalcService {
             case "/":
                 if (form.getSecondArgument() == 0) {
                     form.setResult(null);
+                    break;
                 }
                 form.setResult(form.getFirstArgument() / form.getSecondArgument());
                 break;
             case "^":
                 if (form.getFirstArgument() == 0 && form.getSecondArgument() == 0) {
                     form.setResult(null);
+                    break;
                 }
                 form.setResult(Math.pow(form.getFirstArgument(), form.getSecondArgument()));
                 break;
             case "root":
                 if (form.getSecondArgument() == 0) {
                     form.setResult(null);
+                    break;
                 }
                 form.setResult(Math.pow(form.getFirstArgument(), 1 / form.getSecondArgument()));
                 break;

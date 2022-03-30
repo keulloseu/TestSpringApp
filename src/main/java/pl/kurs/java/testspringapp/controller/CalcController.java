@@ -33,10 +33,10 @@ public class CalcController {
             return "calculator_redo";
         }
         calcService.calculateResult(form);
+        if (form.getResult() == null) {
+            return "calculator_error";
+        }
         calcRepo.save(form);
-        map.addAttribute("firstArgument", form.getFirstArgument());
-        map.addAttribute("secondArgument", form.getSecondArgument());
-        map.addAttribute("operator", form.getOperator());
         map.addAttribute("result", form.getResult());
         return "calculator_execute";
     }
