@@ -29,15 +29,15 @@ public class CalcController {
 
     @PostMapping(value = "/calculator/execute")
     public String calculatorExecute(ModelMap map, @ModelAttribute("calcForm") CalcForm form) {
+        map.addAttribute("result", calcFacade.getResult(form));
         if (form.getFirstArgument() == null || form.getSecondArgument() == null) {
             return "calculator_redo";
         }
-        calcService.calculateResult(form);
         if (form.getResult() == null) {
             return "calculator_error";
         }
         calcRepo.save(form);
-        map.addAttribute("result", form.getResult());
+
         return "calculator_execute";
     }
 

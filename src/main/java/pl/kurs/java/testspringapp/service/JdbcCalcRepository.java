@@ -16,7 +16,7 @@ public class JdbcCalcRepository implements CalcRepo {
     private final Scanner scanner;
 
     public int save(CalcForm form) {
-        return jdbcTemplate.update("insert into calculation values (?,?,?,?,?)",
+        return jdbcTemplate.update("insert into calculator values (?,?,?,?,?)",
                 form.getFirstArgument(), form.getSecondArgument(), form.getOperator(), form.getResult(), new Timestamp(System.currentTimeMillis()));
     }
 }
