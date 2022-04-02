@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CalcForm {
-    private Double firstArgument;
-    private Double secondArgument;
-    private Double result;
-    private String operator;
+public class StringModForm {
+    private String userString;
+    private String function;
+    private String modifiedString;
+    private long time;
 }

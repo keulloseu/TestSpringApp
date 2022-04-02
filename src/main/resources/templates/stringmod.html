@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>string mod app</title>
+</head>
+<body>
+<h1>modyfikacja tekstu</h1>>
+<form action="#" th:action="@{/stringmod/execute}" method="post" th:object="${stringModForm}">
+    <label for="fa">podaj tekst: </label>
+    <input th:field="*{userString}" id="fa"/>
+    <label for="op">wybierz dzialanie</label>
+    <select th:field="*{function}" id="op">
+        <option th:each="function : ${functions}" th:value="${function}" th:text="${function}"></option>
+    </select>
+    <button type="submit">START</button>
+</form>
+
+</body>
+</html>

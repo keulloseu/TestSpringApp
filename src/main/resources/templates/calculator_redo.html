@@ -2,22 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>redo</title>
+    <title>calculator app</title>
 </head>
 <body>
 <h1>kalkulator</h1>>
-<h2>obie liczby musza zostac podane!</h2>
+<h2>podaj prawidlowe dane!!</h2>
 <form action="#" th:action="@{/calculator/execute}" method="post" th:object="${calcForm}">
     <label for="fa">podaj pierwsza liczbe</label>
     <input th:field="*{firstArgument}" id="fa"/>
     <label for="op">wybierz dzialanie</label>
     <select th:field="*{operator}" id="op">
-        <option th:value="'+'" th:text="dodawanie"></option>
-        <option th:value="'-'" th:text="odejmowanie"></option>
-        <option th:value="'*'" th:text="mnozenie"></option>
-        <option th:value="'/'" th:text="dzielenie"></option>
-        <option th:value="'^'" th:text="potegowanie"></option>
-        <option th:value="'root'" th:text="pierwiastkowanie"></option>
+        <option th:each="operator : ${operators}" th:value="${operator}" th:text="${operator}"></option>
     </select>
     <label for="sa">podaj druga liczbe</label>
     <input th:field="*{secondArgument}" id="sa"/>
