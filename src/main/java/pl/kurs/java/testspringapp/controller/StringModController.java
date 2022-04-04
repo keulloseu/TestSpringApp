@@ -8,11 +8,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.kurs.java.testspringapp.facade.StringModFacade;
 import pl.kurs.java.testspringapp.model.StringModForm;
+import pl.kurs.java.testspringapp.service.CsvService;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 @RequiredArgsConstructor
 public class StringModController {
     private final StringModFacade facade;
+    private final CsvService csvService;
 
     @GetMapping("/stringmod")
     public String stringModStart(ModelMap map) {
@@ -26,5 +31,16 @@ public class StringModController {
         StringModForm modifiedForm = facade.modifyForm(form);
         map.addAttribute("modifiedString", modifiedForm.getModifiedString());
         return "stringmod_execute";
+    }
+
+    @GetMapping("/stringmod/download")
+    public void stringModStart(HttpServletResponse servletResponse) {
+        servletResponse.setContentType("text/csv");
+        servletResponse.addHeader("Content-Disposition", "attachment; filename=\"stringMods.csv\"");
+        try {
+            csvService.writeDataToCsv(servletResponse.getWriter());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

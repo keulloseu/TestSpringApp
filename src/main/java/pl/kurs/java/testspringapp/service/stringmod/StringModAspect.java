@@ -1,6 +1,5 @@
 package pl.kurs.java.testspringapp.service.stringmod;
 
-import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -11,9 +10,7 @@ import java.util.Objects;
 
 @Aspect
 @Component
-@RequiredArgsConstructor
 public class StringModAspect {
-    private final StringModForm form;
 
     @Around("execution(* modify(..))")
     public StringModForm modifyAdvice(ProceedingJoinPoint joinPoint) {
