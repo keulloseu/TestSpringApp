@@ -5,15 +5,15 @@
     <title>calculator app</title>
 </head>
 <body>
-<h1>kalkulator</h1>>
+<h1>Calculator</h1>>
 <form action="#" th:action="@{/calculator/execute}" method="post" th:object="${calcForm}">
-    <label for="fa">podaj pierwsza liczbe</label>
+    <label for="fa">input the first number:</label>
     <input th:field="*{firstArgument}" id="fa"/>
-    <label for="op">wybierz dzialanie</label>
+    <label for="op">choose operation:</label>
     <select th:field="*{operator}" id="op">
         <option th:each="operator : ${operators}" th:value="${operator}" th:text="${operator}"></option>
     </select>
-    <label for="sa">podaj druga liczbe</label>
+    <label for="sa">input the second number:</label>
     <input th:field="*{secondArgument}" id="sa"/>
     <button type="submit">START</button>
 </form>

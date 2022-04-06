@@ -1,6 +1,8 @@
 package pl.kurs.java.testspringapp.facade;
 
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import pl.kurs.java.testspringapp.model.CalcForm;
 import pl.kurs.java.testspringapp.model.CalcRepo;
 import pl.kurs.java.testspringapp.service.calculator.Operator;
@@ -32,7 +34,10 @@ public class CalcFacade {
         calcRepo.save(form);
     }
 
-    public String redirect(CalcForm form) {
+    public String redirect(ModelMap map, @ModelAttribute("calcForm") CalcForm form) {
+        map.addAttribute("result", form.getResult());
+        map.addAttribute("calcForm", form);
+        map.addAttribute("operators", getOperatorSymbols());
         return form.getResult() == null ? "calculator_redo" : "calculator_execute";
     }
 

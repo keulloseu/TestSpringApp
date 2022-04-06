@@ -22,12 +22,9 @@ public class CalcController {
     }
 
     @PostMapping(value = "/calculator/execute")
-    public String calculatorExecute(ModelMap map, @ModelAttribute("calcForm") CalcForm form) {
+    public String calculatorExecute(ModelMap map, CalcForm form) {
         calcFacade.calculateResult(form);
-        map.addAttribute("result", form.getResult());
-        map.addAttribute("calcForm", form);
-        map.addAttribute("operators", calcFacade.getOperatorSymbols());
-        return calcFacade.redirect(form);
+        return calcFacade.redirect(map, form);
     }
 
 }

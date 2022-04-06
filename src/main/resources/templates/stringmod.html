@@ -5,17 +5,17 @@
     <title>string mod app</title>
 </head>
 <body>
-<h1>modyfikacja tekstu</h1>>
+<h1>Text modification</h1>>
 <form action="#" th:action="@{/stringmod/execute}" method="post" th:object="${stringModForm}">
-    <label for="fa">podaj tekst: </label>
+    <label for="fa">insert your text:</label>
     <input th:field="*{userString}" id="fa"/>
-    <label for="op">wybierz dzialanie</label>
+    <label for="op">choose string function to apply to your text:</label>
     <select th:field="*{function}" id="op">
         <option th:each="function : ${functions}" th:value="${function}" th:text="${function}"></option>
     </select>
     <button type="submit">START</button>
 </form>
-<h2>pobierz baze danych jako CSV</h2>
+<h2>download app data base as CSV</h2>
 <form action="#" th:action="@{/stringmod/download}" method="get">
     <button type="submit">DOWNLOAD</button>
 </form>
