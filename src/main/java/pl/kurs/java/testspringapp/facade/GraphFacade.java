@@ -14,7 +14,7 @@ public class GraphFacade {
     private final Map<String, Stat> allStats;
     private final StringModRepo stringModRepo;
 
-    public GraphFacade(Set< Stat> stats, StringModRepo stringModRepo) {
+    public GraphFacade(Set<Stat> stats, StringModRepo stringModRepo) {
         this.allStats = stats.stream().collect(Collectors.toMap(Stat::getStatName, java.util.function.Function.identity()));
         this.stringModRepo = stringModRepo;
     }
