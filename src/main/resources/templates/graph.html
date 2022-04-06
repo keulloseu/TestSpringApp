@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>graph app</title>
+</head>
+<body>
+<h1>Graphs for application statistics</h1>>
+<form action="#" th:action="@{/graph/execute}" method="post" th:object="${graphForm}">
+    <label for="op">choose statistic to view:</label>
+    <select th:field="*{title}" id="op">
+        <option th:each="stat : ${stats}" th:value="${stat}" th:text="${stat}"></option>
+    </select>
+    <button type="submit">START</button>
+</form>
+<h2>download app data base as CSV</h2>
+<form action="#" th:action="@{/stringmod/download}" method="get">
+    <button type="submit">DOWNLOAD</button>
+</form>
+</body>
+</html>
