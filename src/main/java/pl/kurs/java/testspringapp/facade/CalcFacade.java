@@ -23,6 +23,7 @@ public class CalcFacade {
     }
 
     public double getResult(CalcForm form) {
+        form.setResult(allOperators.get(form.getOperator()).calculate(form.getFirstArgument(), form.getSecondArgument())); //nie pewne tutaj jest problem
         return allOperators.get(form.getOperator()).calculate(form.getFirstArgument(), form.getSecondArgument());
     }
 

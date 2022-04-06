@@ -19,23 +19,15 @@ public class SubtractionOperatorImpl implements Operator {
 
 /*
 
-napisz analogiczny c0ontroller do algorytmow stringa - czyli user podaje jaksi string, wybiera z DD algorytm szyfrujacy (np reverseCAse, reverseString, toUpperCAse...)
+napisz analogiczny controller do algorytmow stringa - czyli user podaje jakis string, wybiera z DD algorytm szyfrujacy (np reverseCAse, reverseString, toUpperCAse...)
 i uzyj facade do implementacji
-
-
 ------------------------
-
-
 chcemy po kazdej wywolanej metodzie zapisac jej statystyki do bazy czyli np gosc uzywa dodawnaa, to do bazy zapisujemy:
 czas wykonania, nazwa metody, argumenty, timestamp, ip
 proigramowanie aspektowe (AoP)
-
 ------------------
-
-dodac EP ktro umozliwi sciagniecei statystyk z bazy w formie csv
-
+dodac EP ktore umozliwi sciagniecie statystyk z bazy w formie csv
 ---------------
-
 poczytac o repozytoriach JPA i Hibernate
 
  */

@@ -16,7 +16,6 @@ import pl.kurs.java.testspringapp.service.CalcService;
 @Controller
 @RequiredArgsConstructor
 public class CalcController {
-    private final CalcService calcService;
     private final CalcRepo calcRepo;
     private final CalcFacade calcFacade;
 
@@ -32,12 +31,12 @@ public class CalcController {
         if (form.getFirstArgument() == null || form.getSecondArgument() == null) {
             return "calculator_redo";
         }
-        calcService.calculateResult(form);
+        calcFacade.getResult(form);
         if (form.getResult() == null) {
             return "calculator_error";
         }
         calcRepo.save(form);
-        map.addAttribute("result", form.getResult());
+        map.addAttribute("result", calcFacade.getResult(form));
         return "calculator_execute";
     }
 

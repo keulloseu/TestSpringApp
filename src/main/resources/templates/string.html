@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>String Modification Site</title>
+</head>
+<body>
+<h1>string modifier</h1>
+<form action="#" th:action="@{/text/execute}" method="post" th:object="${stringForm}">
+    <label for="fa">podaj wyraz</label>
+    <input th:field="*{text}" id="fa"/>
+    <label for="op">wybierz co chcesz zrobić ze słowem</label>
+    <select th:field="*{stringOperator}" id="op">
+        <option th:each="modifier:${modifiers}" th:value="${modifier}" th:text="${modifier}"></option>
+    </select>
+    <button type="submit">START</button>
+</form>
+
+</body>
+</html>

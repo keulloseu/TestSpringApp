@@ -11,12 +11,7 @@
     <input th:field="*{firstArgument}" id="fa"/>
     <label for="op">wybierz dzialanie</label>
     <select th:field="*{operator}" id="op">
-        <option th:value="'+'">dodawanie</option>
-        <option th:value="'-'">odejmowanie</option>
-        <option th:value="'*'">mnozenie</option>
-        <option th:value="'/'">dzielenie</option>
-        <option th:value="'^'">potegowanie</option>
-        <option th:value="'root'">pierwiastkowanie</option>
+        <option th:each="operator:${operators}" th:value="${operator}" th:text="${operator}"></option>
     </select>
     <label for="sa">podaj druga liczbe</label>
     <input th:field="*{secondArgument}" id="sa"/>
