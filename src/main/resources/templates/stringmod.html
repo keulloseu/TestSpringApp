@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/stringmod/execute}" method="post" th:object="${stringForm}">
+    <label for="a">Input text:</label>
+    <input th:field="*{str}" id="a">
+    <label for="b">Select modification:</label>
+    <select th:field="*{function}" id="b">
+        <option th:each="modName : ${modNames}" th:value="${modName}" th:text="${modName}"></option>
+    </select>
+    <button type="submit">Start</button>
+</form>
+<form action="#" th:action="@{/stringmod/download}" method="get">
+    <button type="submit">Download</button>
+</form>
+</body>
+</html>

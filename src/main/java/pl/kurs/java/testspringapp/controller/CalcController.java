@@ -11,12 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pl.kurs.java.testspringapp.facade.CalcFacade;
 import pl.kurs.java.testspringapp.model.CalcForm;
 import pl.kurs.java.testspringapp.model.CalcRepo;
-import pl.kurs.java.testspringapp.service.CalcService;
 
 @Controller
 @RequiredArgsConstructor
 public class CalcController {
-    private final CalcService calcService;
     private final CalcRepo calcRepo;
     private final CalcFacade calcFacade;
 
