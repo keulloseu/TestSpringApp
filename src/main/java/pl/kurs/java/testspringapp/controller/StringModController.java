@@ -28,8 +28,7 @@ public class StringModController {
 
     @PostMapping("/stringmod/execute")
     public String stringModExecute(ModelMap map, @ModelAttribute StringModForm form) {
-        StringModForm modifiedForm = facade.modifyForm(form);
-        map.addAttribute("modifiedString", modifiedForm.getModifiedString());
+        map.addAttribute("modifiedString", facade.modifyForm(form).getModifiedString());
         return "stringmod_execute";
     }
 
