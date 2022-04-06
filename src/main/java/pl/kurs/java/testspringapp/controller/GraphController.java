@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.Map;
 
 @Controller
-public class GraphCointeollre {
+public class GraphController {
     @GetMapping("/graph")
     public String a(ModelMap map) {
         map.addAttribute("titleString", "dupa");
